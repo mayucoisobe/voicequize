@@ -10,7 +10,8 @@ const useStore = create((set) => ({
 
   starCount: 0,
   setInitialStarCount: (initialValue) => set({ starCount: initialValue }),
-  increaseStar: () => set((state) => ({ starCount: state.starCount + state.point })),
+  increaseStar: () =>
+    set((state) => ({ starCount: state.starCount + state.point })),
 
   cardCount: 0,
   setInitialCardCount: (initialValue) => set({ cardCount: initialValue }),
@@ -50,6 +51,14 @@ const useStore = create((set) => ({
   // ミュートの状態管理
   isMuted: true, //初期値はミュート状態
   setIsMuted: (data) => set({ isMuted: data }),
+
+  //　正解不正解モーダルの状態管理 ios対策
+  audio01: '',
+  setAudio01: (data) => set({ audio01: data }),
+  audio02: '',
+  setAudio02: (data) => set({ audio02: data }),
+  audio03: '',
+  setAudio03: (data) => set({ audio03: data }),
 }));
 
 export default useStore;

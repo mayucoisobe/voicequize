@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useStore from '../store';
 import SpeechRecognition, {
   useSpeechRecognition,
@@ -37,10 +37,51 @@ export default function Home() {
   const { getTranscript } = useStore();
   const setHiraganaData = useStore((state) => state.setHiraganaData);
 
-  const [text, setText] = useState('');
+  // const [text, setText] = useState('');
   const [show, setShow] = useState('0'); // 正解 1/不正解 2/ゲームオーバー 3のモーダル切替
   const [image, setImage] = useState('q_circle');
   const { transcript, finalTranscript } = useSpeechRecognition();
+
+  /*
+  ios audio再生対策
+  -------------------- */
+  // 音源用のstate ios対策
+  // const [audio01, setAudio01] = useState('');
+  // const [audio02, setAudio02] = useState('');
+  // const [audio03, setAudio03] = useState('');
+  const { audio01, audio02, audio03 } = useStore();
+  const setAudio01 = useStore((state) => state.setAudio01);
+  const setAudio02 = useStore((state) => state.setAudio02);
+  const setAudio03 = useStore((state) => state.setAudio03);
+  // 正解モーダル 音生成：
+  const createAudio01 = useRef(
+    typeof Audio !== 'undefined'
+      ? new Audio('/resources/applause.mp3')
+      : undefined
+  );
+  // 不正解モーダル 音生成：
+  const createAudio02 = useRef(
+    typeof Audio !== 'undefined'
+      ? new Audio('/resources/donmai.mp3')
+      : undefined
+  );
+  // 時間切れモーダル 音生成：
+  const createAudio03 = useRef(
+    typeof Audio !== 'undefined' ? new Audio('/resources/katsu.mp3') : undefined
+  );
+  const audioLoad = () => {
+    createAudio01.current.load();
+    createAudio02.current.load();
+    createAudio03.current.load();
+    setAudio01(createAudio01);
+    setAudio02(createAudio02);
+    setAudio03(createAudio03);
+    console.log('load実行');
+  };
+  console.log(audio01, audio02, audio03);
+  /*
+  ios audio再生対策ここまで
+  -------------------- */
 
   // 既に正解しているクイズを除く(ローカルデータとの差分チェック)
   const filteredQuizList = (array) => {
@@ -98,9 +139,9 @@ export default function Home() {
   };
 
   // 入力した内容を取得
-  const inputChange = (e) => {
-    setText(e.target.value);
-  };
+  // const inputChange = (e) => {
+  //   setText(e.target.value);
+  // };
   // 正解か不正解の判別
   const checkAnswer = () => {
     // text === quizlist[index].check ? setShow(1) : setShow(2);
@@ -148,7 +189,14 @@ export default function Home() {
             {/* スタートボタンを押したらボタン非表示〜クイズシャッフル＆クリック可能〜マイク表示 */}
             {!isStart ? (
               <div className="relative">
-                <ButtonStart onClick={shuffleStart}>PLAY</ButtonStart>
+                <ButtonStart
+                  onClick={() => {
+                    shuffleStart();
+                    audioLoad();
+                  }}
+                >
+                  PLAY
+                </ButtonStart>
                 {/* <IconHand className="absolute top-24 right-5 animate-up-down" /> */}
                 <Image
                   src="/images/common/icon_pointhand.png"
@@ -184,10 +232,15 @@ export default function Home() {
             english={quizlist[index]?.english}
             spanish={quizlist[index]?.spanish}
             image={image}
+            audio={audio01}
           >
             <img src={`/images/questions/${image}.jpg`} alt="車の画像" />
           </ModalCorrect>
-          <ModalInCorrect show={show} setShow={setShow}></ModalInCorrect>
+          <ModalInCorrect
+            show={show}
+            setShow={setShow}
+            audio={audio02}
+          ></ModalInCorrect>
           <ModalGameOver
             show={show}
             setShow={setShow}
@@ -195,6 +248,7 @@ export default function Home() {
             setIndex={setIndex}
             contents={quizlist[index]?.answer}
             image={image}
+            audio={audio03}
           >
             <img src={`/images/questions/${image}.jpg`} alt="車の画像" />
           </ModalGameOver>
