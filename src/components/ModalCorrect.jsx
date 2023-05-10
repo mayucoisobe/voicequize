@@ -3,13 +3,13 @@ import useStore from '../store';
 import styles from '../styles/Modal.module.css';
 
 import { Button } from './Button';
-import { AudioSounds } from './AudioSounds';
+// import { AudioSounds } from './AudioSounds';
 import { db } from '@/db';
 import { ReactComponent as Maru } from '../../public/images/modals/maru.svg';
 import { ReactComponent as StarHead } from '../../public/images/modals/icon_headStars.svg';
 import { ReactComponent as PointStars } from '../../public/images/modals/icon_pointStars.svg';
 
-export const ModalCorrect = ({ show, setShow, handleNextQuiz, contents, english, spanish, image, children }) => {
+export const ModalCorrect = ({ show, setShow, handleNextQuiz, contents, english, spanish, image, children, audio }) => {
   const { point } = useStore();
   const { starCount } = useStore();
   const { cardCount } = useStore();
@@ -17,6 +17,7 @@ export const ModalCorrect = ({ show, setShow, handleNextQuiz, contents, english,
   const increaseCard = useStore((state) => state.increaseCard);
   const setGetTranscript = useStore((state) => state.setGetTranscript);
   const { voice } = useStore();
+  const { isMuted } = useStore();
 
   const { overlay, content, customRed, star } = styles;
   const [isTrue, setIsTrue] = useState(false);
@@ -89,8 +90,9 @@ export const ModalCorrect = ({ show, setShow, handleNextQuiz, contents, english,
     setIsTrue(false);
   };
 
-  // console.log(voice);
-  // console.log(status);
+  useEffect(() => {
+    !isMuted && show === 1 && audio.current?.play();
+  }, [show]);
 
   if (show === 1) {
     return (
@@ -100,7 +102,7 @@ export const ModalCorrect = ({ show, setShow, handleNextQuiz, contents, english,
           <Maru />
           <p className="mt-5 text-2xl xs:mt-6 xs:text-3xl">👏👏👏👏👏</p>
         </div>
-        <AudioSounds src="/resources/applause.mp3" autoPlay />
+        {/* <AudioSounds src="/resources/applause.mp3" autoPlay /> */}
         {isTrue && (
           <div className={`${overlay} z-50`} onClick={nextQuiz}>
             <div className={`${content} ${customRed} relative`} onClick={(e) => e.stopPropagation()}>

@@ -8,28 +8,27 @@ export const GridBox = () => {
   const { indexList } = useStore();
   const { index } = useStore();
   const setIndexList = useStore((state) => state.setIndexList);
-  const audioRef = useRef(null);
+  const { isMuted } = useStore();
+  const createAudioRef = useRef(null);
 
   const [activeIndex, setActiveIndex] = useState('-1');
   const { grid_container, grid_container__02 } = styles;
   const gridItems = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 
-  // const createAudio =
-  //   typeof Audio !== 'undefined'
-  //     ? new Audio(`/resources/${index % 2 === 0 ? 'purin01' : 'purin02'}.mp3`)
-  //     : undefined;
+  useEffect(() => {
+    createAudioRef.current = new Audio(`/resources/${index % 2 === 0 ? 'purin01' : 'purin02'}.mp3`);
+  }, [index]);
 
-  // const audioLoadPlay = () => {
-  //   createAudio.load();
-  //   createAudio?.play();
-  // };
+  const audioLoadPlay = () => {
+    !isMuted ? (createAudioRef.current.load(), createAudioRef.current?.play()) : null;
+  };
 
   const handleGridClick = (index) => {
     setActiveIndex(index);
     setIndexList([...indexList, { index }]);
     decreasePoint();
-    // audioLoadPlay();
-    audioRef.current.play();
+    audioLoadPlay();
+    // audioRef.current.play();
 
     setTimeout(() => {
       setActiveIndex('-1');
@@ -42,9 +41,7 @@ export const GridBox = () => {
     <>
       {/* <div className={`${grid_container__02} container absolute inset-0 h-52 cursor-pointer`}> */}
       <div
-        className={`${
-          index % 2 === 0 ? grid_container : grid_container__02
-        } container absolute inset-0 cursor-pointer`}
+        className={`${index % 2 === 0 ? grid_container : grid_container__02} container absolute inset-0 cursor-pointer`}
       >
         {gridItems.map((item, index) => {
           const isClicked = indexList.map((list) => list.index).includes(index);
@@ -58,11 +55,11 @@ export const GridBox = () => {
             ></div>
           );
         })}
-        <AudioSounds
+        {/* <AudioSounds
           src={`/resources/${index % 2 === 0 ? 'purin01' : 'purin02'}.mp3`}
           autoPlay={false}
           audioRef={audioRef}
-        />
+        /> */}
       </div>
     </>
   );

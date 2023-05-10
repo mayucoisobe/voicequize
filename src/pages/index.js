@@ -2,9 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import useStore from '../store';
-import SpeechRecognition, {
-  useSpeechRecognition,
-} from 'react-speech-recognition';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 import questions from '@/constants/questions';
 import { ModalCorrect } from '@/components/ModalCorrect';
@@ -54,21 +52,11 @@ export default function Home() {
   const setAudio02 = useStore((state) => state.setAudio02);
   const setAudio03 = useStore((state) => state.setAudio03);
   // 正解モーダル 音生成：
-  const createAudio01 = useRef(
-    typeof Audio !== 'undefined'
-      ? new Audio('/resources/applause.mp3')
-      : undefined
-  );
+  const createAudio01 = useRef(typeof Audio !== 'undefined' ? new Audio('/resources/applause.mp3') : undefined);
   // 不正解モーダル 音生成：
-  const createAudio02 = useRef(
-    typeof Audio !== 'undefined'
-      ? new Audio('/resources/donmai.mp3')
-      : undefined
-  );
+  const createAudio02 = useRef(typeof Audio !== 'undefined' ? new Audio('/resources/donmai.mp3') : undefined);
   // 時間切れモーダル 音生成：
-  const createAudio03 = useRef(
-    typeof Audio !== 'undefined' ? new Audio('/resources/katsu.mp3') : undefined
-  );
+  const createAudio03 = useRef(typeof Audio !== 'undefined' ? new Audio('/resources/katsu.mp3') : undefined);
   const audioLoad = () => {
     createAudio01.current.load();
     createAudio02.current.load();
@@ -78,7 +66,7 @@ export default function Home() {
     setAudio03(createAudio03);
     console.log('load実行');
   };
-  console.log(audio01, audio02, audio03);
+  // console.log(audio01, audio02, audio03);
   /*
   ios audio再生対策ここまで
   -------------------- */
@@ -168,11 +156,7 @@ export default function Home() {
               ))}
             </div>
           </section>
-          <section
-            className={`${
-              !isStart ? 'pointer-events-none' : 'pointer-events-auto'
-            }`}
-          >
+          <section className={`${!isStart ? 'pointer-events-none' : 'pointer-events-auto'}`}>
             {/* <div className="ma-w-256 relative bg-white xs:max-w-full "> */}
             <div className="relative bg-white ">
               <Image
@@ -205,19 +189,22 @@ export default function Home() {
                   alt="point-hand"
                   className="absolute top-24 right-5 animate-up-down"
                 />
-                <AudioSounds
-                  src="/resources/bgm_Monkeys-Spinning-Monkeys.mp3"
-                  autoPlay
-                />
+                <AudioSounds src="/resources/bgm_Monkeys-Spinning-Monkeys.mp3" autoPlay />
               </div>
             ) : (
-              <div>
+              <div className="relative">
+                <button
+                  onClick={() => setShow(3)}
+                  className="absolute top-0 right-0 rounded-2xl bg-customRed p-2 text-white"
+                >
+                  つぎへ
+                </button>
                 <WebSpeechAPI checkAnswer={checkAnswer} />
                 {/* <div>{transcript}</div> */}
                 <AudioSounds src="/resources/dialogue_touch.mp3" autoPlay />
                 {/* 正解の判断はこちらで行う（漢字自動出力） */}
-                {/* <Button styleType="primary" text="次のクイズ" onClick={handleNextQuiz} />
-                <button onClick={checkAnswer}>回答する</button>
+                {/* <button onClick={() => setShow(3)}>わからない</button> */}
+                {/* <button onClick={checkAnswer}>回答する</button>
                 <h2 className="mt-5">{text}</h2>
                 <input onChange={inputChange} placeholder="テキスト入力"></input> */}
               </div>
@@ -236,18 +223,13 @@ export default function Home() {
           >
             <img src={`/images/questions/${image}.jpg`} alt="車の画像" />
           </ModalCorrect>
-          <ModalInCorrect
-            show={show}
-            setShow={setShow}
-            audio={audio02}
-          ></ModalInCorrect>
+          <ModalInCorrect show={show} setShow={setShow} audio={audio02}></ModalInCorrect>
           <ModalGameOver
             show={show}
             setShow={setShow}
             handleNextQuiz={handleNextQuiz}
             setIndex={setIndex}
             contents={quizlist[index]?.answer}
-            image={image}
             audio={audio03}
           >
             <img src={`/images/questions/${image}.jpg`} alt="車の画像" />

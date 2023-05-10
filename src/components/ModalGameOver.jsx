@@ -1,15 +1,21 @@
+import { useEffect } from 'react';
+import useStore from '@/store';
 import styles from '../styles/Modal.module.css';
-
 import { Button } from './Button';
-import { AudioSounds } from './AudioSounds';
+// import { AudioSounds } from './AudioSounds';
 
-export const ModalGameOver = ({ show, setShow, handleNextQuiz, contents, children }) => {
+export const ModalGameOver = ({ show, setShow, handleNextQuiz, contents, children, audio }) => {
   const { overlay, content, customBlue } = styles;
+  const { isMuted } = useStore();
 
   const nextQuiz = () => {
     handleNextQuiz();
     setShow(0);
   };
+
+  useEffect(() => {
+    !isMuted && show === 3 && audio.current?.play();
+  }, [show]);
 
   if (show === 3) {
     return (
@@ -23,7 +29,7 @@ export const ModalGameOver = ({ show, setShow, handleNextQuiz, contents, childre
             <Button styleType="primary" text={'つぎへ'} onClick={() => nextQuiz()} />
           </div>
         </div>
-        <AudioSounds src="/resources/katsu.mp3" autoPlay />
+        {/* <AudioSounds src="/resources/katsu.mp3" autoPlay /> */}
       </div>
     );
   } else {

@@ -11,7 +11,7 @@ export const Header = () => {
 
   return (
     <div>
-      <div className="container mx-auto flex flex-wrap items-center justify-between px-8 py-5">
+      <div className="container mx-auto flex flex-wrap items-center justify-between px-8 pt-5 pb-2">
         <Link className="flex w-20 items-center rounded-full border-2 border-customBlue pl-2" href="/score">
           <Star />
           <p className="en pl-1 text-xl">{starCount}</p>

@@ -8,6 +8,7 @@ export const VolumeControl = () => {
 
   return (
     <div className="my-4">
+      <p className="fwb pb-1 text-sm text-customBlue">おんがく</p>
       <button onClick={() => setIsMuted(!isMuted)}>{isMuted ? <IconMuted /> : <IconUnMuted />}</button>
     </div>
   );

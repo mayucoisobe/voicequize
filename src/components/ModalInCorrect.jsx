@@ -1,18 +1,25 @@
+import { useEffect } from 'react';
 import useStore from '@/store';
 import styles from '../styles/Modal.module.css';
 import { Button } from './Button';
-import { AudioSounds } from './AudioSounds';
+// import { AudioSounds } from './AudioSounds';
 import { ReactComponent as Batsu } from '../../public/images/modals/batsu.svg';
 
-export const ModalInCorrect = ({ show, setShow }) => {
+export const ModalInCorrect = ({ show, setShow, audio }) => {
   const setGetTranscript = useStore((state) => state.setGetTranscript);
   const setHiraganaData = useStore((state) => state.setHiraganaData);
   const { overlay, content, customBlue } = styles;
+  const { isMuted } = useStore();
+
   const closeModal = () => {
     setShow(0);
     setGetTranscript('');
     setHiraganaData('');
   };
+
+  useEffect(() => {
+    !isMuted && show === 2 && audio.current?.play();
+  }, [show]);
 
   if (show === 2) {
     return (
@@ -24,16 +31,10 @@ export const ModalInCorrect = ({ show, setShow }) => {
             <Button styleType="primary" text={'もどる'} onClick={closeModal} />
           </div>
         </div>
-        <AudioSounds src="/resources/donmai.mp3" autoPlay />
+        {/* <AudioSounds src="/resources/donmai.mp3" autoPlay /> */}
       </div>
     );
   } else {
     return null;
   }
 };
-
-// padding: 60px 35px 40px;
-//     border-radius: 30px;
-//     border: 10px solid red;
-
-//     pt-14 pb-10 px-9
