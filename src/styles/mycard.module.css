@@ -1,0 +1,19 @@
+@media (min-width: 640px) {
+  .mycard_list {
+    width: calc((100% - 2.5rem) / 2);
+    min-width: 235px;
+    /* flex: calc((100% - 1.5rem) / 2); */
+  }
+}
+
+.mycard_list {
+  box-shadow: 0 0.15rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+  max-width: 256px;
+  bottom: 0;
+  transition: box-shadow 0.2s, bottom 0.2s;
+}
+
+.mycard_list:hover {
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.4);
+  bottom: 2px;
+}

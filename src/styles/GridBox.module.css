@@ -1,0 +1,104 @@
+.grid_container {
+  display: grid;
+  grid-template-columns: 1fr 0.4fr 0.8fr 1fr 1.2fr;
+  grid-template-rows: 1.2fr 1fr 0.7fr 0.8fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'C B B B A'
+    'C D D E A'
+    'F F F E A'
+    'J J G G A'
+    'J J I H A';
+}
+
+.grid_container__02 {
+  display: grid;
+  grid-template-columns: 1.2fr 0.6fr 0.7fr 0.8fr 0.7fr 1fr;
+  grid-template-rows: 1fr 0.4fr 0.7fr 0.8fr 0.9fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    'G F D D A A'
+    'G F D D C B'
+    'G F E E C B'
+    'I I I H H B'
+    'J J J J J B';
+}
+
+.grid_container > div,
+.grid_container__02 > div {
+  border-radius: 8px;
+  /* border: 1px solid #6c6c6c; */
+  transition: 0.3s ease-out;
+}
+.grid_container > div:hover,
+.grid_container__02 > div:hover {
+  border-radius: 20px;
+}
+
+.A {
+  grid-area: A;
+  background-color: var(--tertiary-color);
+  border: 10px outset var(--tertiary-color);
+}
+
+.B {
+  grid-area: B;
+  background-color: var(--primary-color);
+  border: 10px outset var(--primary-color);
+}
+
+.C {
+  grid-area: C;
+  background-color: var(--secondary-color);
+  border: 10px outset var(--secondary-color);
+}
+
+.D {
+  grid-area: D;
+  background-color: var(--quinary-color);
+  border: 10px outset var(--quinary-color);
+}
+
+.E {
+  grid-area: E;
+  background-color: var(--secondary-color);
+  border: 10px outset var(--secondary-color);
+}
+.grid_container__02 .E {
+  background-color: var(--primary-color);
+  border: 10px outset var(--primary-color);
+}
+
+.F {
+  grid-area: F;
+  background-color: var(--tertiary-color);
+  border: 10px outset var(--tertiary-color);
+}
+
+.G {
+  grid-area: G;
+  background-color: var(--quinary-color);
+  border: 10px outset var(--quinary-color);
+}
+
+.H {
+  grid-area: H;
+  background-color: var(--primary-color);
+  border: 10px outset var(--primary-color);
+}
+.grid_container__02 .H {
+  background-color: var(--quinary-color);
+  border: 10px outset var(--quinary-color);
+}
+.I {
+  grid-area: I;
+  background-color: var(--tertiary-color);
+  border: 10px outset var(--tertiary-color);
+}
+
+.J {
+  grid-area: J;
+  background-color: var(--secondary-color);
+  border: 8px outset var(--secondary-color);
+}

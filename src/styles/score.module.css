@@ -1,0 +1,33 @@
+.title::after {
+  content: '';
+  width: 110px;
+  height: 3px;
+  display: inline-block;
+  background-color: #ef476f;
+  position: absolute;
+  bottom: -2px;
+  left: calc(50% - 55px);
+}
+
+.board_inner {
+  border: 10px solid #ffd166;
+  border-radius: 30px;
+  padding: 30px 38px;
+}
+
+.star {
+  transform: translateX(-50%);
+}
+
+.po_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.po_right {
+  position: absolute;
+  right: 0;
+  top: calc(50% - 24px);
+}

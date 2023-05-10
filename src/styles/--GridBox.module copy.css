@@ -1,0 +1,73 @@
+.grid_container {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr 0.9fr 1fr;
+  grid-template-rows: 1.3fr 0.7fr 0.7fr 1.5fr 0.8fr;
+  /* gap: 1px 1px; */
+  grid-auto-flow: row;
+  grid-template-areas:
+    'A F H I'
+    'A G G I'
+    'A E J J'
+    'B E D D'
+    'C C C C';
+}
+
+.grid_container > div {
+  border-radius: 8px;
+  /* border: 1px solid #6c6c6c; */
+  transition: 0.3s ease-out;
+}
+.grid_container > div:hover {
+  border-radius: 20px;
+}
+
+.A {
+  grid-area: A;
+  background-color: #ffd166;
+  border: 10px outset #ffd166;
+}
+.B {
+  grid-area: B;
+  background-color: #ef476f;
+  border: 10px outset #ef476f;
+}
+.C {
+  grid-area: C;
+  background-color: #ffd166;
+  border: 10px outset #ffd166;
+}
+.D {
+  grid-area: D;
+  background-color: #3e87ff;
+  border: 10px outset #3e87ff;
+}
+.E {
+  grid-area: E;
+  background-color: #06d6a0;
+  border: 10px outset #06d6a0;
+}
+.F {
+  grid-area: F;
+  background-color: #ef476f;
+  border: 10px outset #ef476f;
+}
+.G {
+  grid-area: G;
+  background-color: #3e87ff;
+  border: 10px outset #3e87ff;
+}
+.H {
+  grid-area: H;
+  background-color: #06d6a0;
+  border: 10px outset #06d6a0;
+}
+.I {
+  grid-area: I;
+  background-color: #ffd166;
+  border: 10px outset #ffd166;
+}
+.J {
+  grid-area: J;
+  background-color: #ef476f;
+  border: 8px outset #ef476f;
+}

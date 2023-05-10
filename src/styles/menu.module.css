@@ -1,0 +1,35 @@
+.title::after {
+  content: '';
+  width: 110px;
+  height: 3px;
+  display: inline-block;
+  background-color: #ef476f;
+  position: absolute;
+  bottom: -2px;
+  left: calc(50% - 55px);
+}
+
+.board_inner {
+  border: 10px solid #ffd166;
+  border-radius: 30px;
+  padding: 30px 38px;
+}
+
+.halfcircle {
+  border-radius: 999px 999px 0 0;
+  position: absolute;
+  left: calc(50% - 32px);
+}
+
+.halfcircle::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+}

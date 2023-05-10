@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ====================
+
+tailwindと併用
+
+==================== */
+.header_diamond {
+  @apply rounded-2xl border-2 border-solid border-customBlue;
+  height: 60px;
+  width: 60px;
+  transform: rotateX(40deg) rotateZ(45deg);
+}
+
+.header_text {
+  @apply en absolute top-1/2 left-1/2 text-3xl;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.footer_menu {
+  @apply flex justify-between bg-customBlue;
+  height: 85px;
+  border-radius: 25px 25px 0 0;
+  gap: 3vw;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
+  /* position: fixed;
+  bottom: 0;
+  width: 100%; */
+}
+
+.button_base {
+  @apply mt-5 xs:mt-6;
+  min-width: 10rem;
+  max-width: 24rem;
+  height: 50px;
+  border-radius: 30px;
+  width: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button_speak {
+  @apply mt-4 bg-gray-50 xs:mt-5;
+  min-width: 10rem;
+  max-width: 24rem;
+  height: 50px;
+  border-radius: 30px;
+  width: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button_start {
+  @apply mt-5;
+  width: 100%;
+}
+.button_start.btn,
+a.btn,
+.button_start.btn {
+  font-size: 1.5rem;
+  position: relative;
+  display: inline-block;
+  padding: 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.3em;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+a.btn-custom01 {
+  margin-bottom: 0.5rem;
+  padding: 0;
+  border-radius: 12px;
+  border: 10px outset var(--primary-color);
+}
+
+.btn-custom01-front {
+  position: relative;
+  display: block;
+  padding: 1rem 2rem;
+  transition: all 0.3s;
+  border: 1px solid #fff;
+  border-radius: inherit;
+  background: var(--primary-color);
+  color: #fff;
+}
+
+a.btn-custom01:hover {
+  transform: translate(0, 0.1rem);
+  background: var(--primary-color);
+}
+
+a.btn-custom01:active {
+  transform: translate(0rem, 0.25rem);
+}
+
+.m-w-50 {
+  min-width: 3.25rem;
+}
+
+.ma-w-256 {
+  max-width: 256px;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  background-color: #fff;
+  background-image: radial-gradient(var(--tertiary-color) 10%, transparent 12%),
+    radial-gradient(var(--tertiary-color) 10%, transparent 12%);
+  background-position: 0 0, 20px 20px; /* 水玉の間隔 */
+  background-size: 20px 20px;
+  /* 水玉の大きさ
+  /* background-size: 40px 40px; */
+}
+
+/* ====================
+
+Common Css
+
+==================== */
+:root {
+  --primary-color: #3e87ff;
+  --secondary-color: #ef476f;
+  --tertiary-color: #ffd166;
+  --quaternary-color: #33312e;
+  --quinary-color: #06d6a0;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: var(--quaternary-color);
+}
+
+li {
+  list-style: none;
+}
+a {
+  display: block;
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.fwb {
+  font-weight: bold;
+}
+.en {
+  font-family: 'Josefin Sans', sans-serif;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+button {
+  cursor: pointer;
+}
+:focus-visible {
+  outline: none;
+}

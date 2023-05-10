@@ -1,0 +1,25 @@
+.balloon {
+  position: relative;
+  display: block;
+  margin: 1em 0;
+  padding: 1em;
+  min-height: 5.6rem;
+  font-size: 1.5rem;
+  background: var(--tertiary-color);
+  border-radius: 15px;
+}
+
+.balloon:before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-bottom: 15px solid var(--tertiary-color);
+}
+
+.balloon p {
+  margin: 0;
+  padding: 0;
+}

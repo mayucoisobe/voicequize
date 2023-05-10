@@ -1,0 +1,41 @@
+.overlay {
+  /*　画面全体を覆う設定　*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /*　画面の中央に要素を表示 　*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  width: 80%;
+  max-width: 36rem;
+  padding: 50px 35px 40px;
+  border-radius: 30px;
+  border: 10px solid;
+  background: #fff;
+}
+.customBlue {
+  border-color: #3e87ff;
+}
+.customRed {
+  border-color: #ef476f;
+}
+.customGreen {
+  border-color: #06d6a0;
+}
+.customBlack {
+  border-color: #33312e;
+}
+.star {
+  transform: translateX(-50%);
+}
