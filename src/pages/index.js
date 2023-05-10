@@ -2,7 +2,9 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import useStore from '../store';
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition';
 
 import questions from '@/constants/questions';
 import { ModalCorrect } from '@/components/ModalCorrect';
@@ -125,7 +127,11 @@ export default function Home() {
               ))}
             </div>
           </section>
-          <section className={`${!isStart ? 'pointer-events-none' : 'pointer-events-auto'}`}>
+          <section
+            className={`${
+              !isStart ? 'pointer-events-none' : 'pointer-events-auto'
+            }`}
+          >
             {/* <div className="ma-w-256 relative bg-white xs:max-w-full "> */}
             <div className="relative bg-white ">
               <Image
@@ -151,7 +157,10 @@ export default function Home() {
                   alt="point-hand"
                   className="absolute top-24 right-5 animate-up-down"
                 />
-                <AudioSounds src="/resources/bgm_Monkeys-Spinning-Monkeys.mp3" autoPlay />
+                <AudioSounds
+                  src="/resources/bgm_Monkeys-Spinning-Monkeys.mp3"
+                  autoPlay
+                />
               </div>
             ) : (
               <div>
