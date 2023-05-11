@@ -2,7 +2,9 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import useStore from '../store';
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition';
 
 import questions from '@/constants/questions';
 import { ModalCorrect } from '@/components/ModalCorrect';
@@ -23,16 +25,12 @@ export default function Home() {
   // 以下はconst {localData} = usestore(); じゃない？上記で修正してみる
   // Zstandでは関数で返ってくるので、配列として使用するためには　localDataを呼び出す必要があるので、上記のは不可っぽい???
   const localData = useStore((state) => state.localData);
-  const { point } = useStore();
+  const { point, quizlist, index, isStart, getTranscript } = useStore();
   const resetPoint = useStore((state) => state.resetPoint);
   const resetSetIndexList = useStore((state) => state.resetSetIndexList);
-  const { quizlist } = useStore();
   const setQuizlist = useStore((state) => state.setQuizlist);
-  const { index } = useStore();
   const setIndex = useStore((state) => state.setIndex);
-  const { isStart } = useStore();
   const setIsStart = useStore((state) => state.setIsStart);
-  const { getTranscript } = useStore();
   const setHiraganaData = useStore((state) => state.setHiraganaData);
 
   // const [text, setText] = useState('');
@@ -52,11 +50,21 @@ export default function Home() {
   const setAudio02 = useStore((state) => state.setAudio02);
   const setAudio03 = useStore((state) => state.setAudio03);
   // 正解モーダル 音生成：
-  const createAudio01 = useRef(typeof Audio !== 'undefined' ? new Audio('/resources/applause.mp3') : undefined);
+  const createAudio01 = useRef(
+    typeof Audio !== 'undefined'
+      ? new Audio('/resources/applause.mp3')
+      : undefined
+  );
   // 不正解モーダル 音生成：
-  const createAudio02 = useRef(typeof Audio !== 'undefined' ? new Audio('/resources/donmai.mp3') : undefined);
+  const createAudio02 = useRef(
+    typeof Audio !== 'undefined'
+      ? new Audio('/resources/donmai.mp3')
+      : undefined
+  );
   // 時間切れモーダル 音生成：
-  const createAudio03 = useRef(typeof Audio !== 'undefined' ? new Audio('/resources/katsu.mp3') : undefined);
+  const createAudio03 = useRef(
+    typeof Audio !== 'undefined' ? new Audio('/resources/katsu.mp3') : undefined
+  );
   const audioLoad = () => {
     createAudio01.current.load();
     createAudio02.current.load();
@@ -120,9 +128,11 @@ export default function Home() {
       resetPoint();
       resetSetIndexList();
       setIndex(index + 1);
-      setImage(quizlist[index + 1].id);
       setHiraganaData('');
-      // console.log(index);
+      // setImage(quizlist[index + 1].id);
+      setTimeout(() => {
+        setImage(quizlist[index + 1].id);
+      }, 300); // 1000ms = 1秒遅延ブロック生成前に画像が見えるため
     }
   };
 
@@ -147,17 +157,27 @@ export default function Home() {
       </Head>
       <div className="wrapper pb-12">
         <div className="mx-auto max-w-sm px-8">
-          <VolumeControl />
+          <div className="flex items-center justify-between">
+            <VolumeControl />
+            {isStart && (
+              <button onClick={() => setShow(3)} className="btn-oteage">
+                お手上げ 👀
+              </button>
+            )}
+          </div>
+
           <section>
             <div className="mb-3 flex gap-1.5">
               {[...Array(point)].map((_, index) => (
-                // <Star key={index} className="animate-flip-out-ver-right" />
                 <IconStar key={index} />
               ))}
             </div>
           </section>
-          <section className={`${!isStart ? 'pointer-events-none' : 'pointer-events-auto'}`}>
-            {/* <div className="ma-w-256 relative bg-white xs:max-w-full "> */}
+          <section
+            className={`${
+              !isStart ? 'pointer-events-none' : 'pointer-events-auto'
+            }`}
+          >
             <div className="relative bg-white ">
               <Image
                 src={`/images/questions/${image}.jpg`}
@@ -189,16 +209,13 @@ export default function Home() {
                   alt="point-hand"
                   className="absolute top-24 right-5 animate-up-down"
                 />
-                <AudioSounds src="/resources/bgm_Monkeys-Spinning-Monkeys.mp3" autoPlay />
+                <AudioSounds
+                  src="/resources/bgm_Monkeys-Spinning-Monkeys.mp3"
+                  autoPlay
+                />
               </div>
             ) : (
-              <div className="relative">
-                <button
-                  onClick={() => setShow(3)}
-                  className="absolute top-0 right-0 rounded-2xl bg-customRed p-2 text-white"
-                >
-                  つぎへ
-                </button>
+              <div>
                 <WebSpeechAPI checkAnswer={checkAnswer} />
                 {/* <div>{transcript}</div> */}
                 <AudioSounds src="/resources/dialogue_touch.mp3" autoPlay />
@@ -223,7 +240,11 @@ export default function Home() {
           >
             <img src={`/images/questions/${image}.jpg`} alt="車の画像" />
           </ModalCorrect>
-          <ModalInCorrect show={show} setShow={setShow} audio={audio02}></ModalInCorrect>
+          <ModalInCorrect
+            show={show}
+            setShow={setShow}
+            audio={audio02}
+          ></ModalInCorrect>
           <ModalGameOver
             show={show}
             setShow={setShow}

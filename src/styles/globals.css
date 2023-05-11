@@ -13,23 +13,17 @@ tailwindと併用
   width: 60px;
   transform: rotateX(40deg) rotateZ(45deg);
 }
-
 .header_text {
   @apply en absolute top-1/2 left-1/2 text-3xl;
   transform: translateX(-50%) translateY(-50%);
 }
-
 .footer_menu {
   @apply flex justify-between bg-customBlue;
   height: 85px;
   border-radius: 25px 25px 0 0;
   gap: 3vw;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
-  /* position: fixed;
-  bottom: 0;
-  width: 100%; */
 }
-
 .button_base {
   @apply mt-5 xs:mt-6;
   min-width: 10rem;
@@ -39,7 +33,6 @@ tailwindと併用
   width: 100%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 .button_speak {
   @apply mt-4 bg-gray-50 xs:mt-5;
   min-width: 10rem;
@@ -49,7 +42,6 @@ tailwindと併用
   width: 100%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 .button_start {
   @apply mt-5;
   width: 100%;
@@ -71,14 +63,12 @@ a.btn,
   border-radius: 0.5rem;
   width: 100%;
 }
-
 a.btn-custom01 {
   margin-bottom: 0.5rem;
   padding: 0;
   border-radius: 12px;
   border: 10px outset var(--primary-color);
 }
-
 .btn-custom01-front {
   position: relative;
   display: block;
@@ -89,24 +79,35 @@ a.btn-custom01 {
   background: var(--primary-color);
   color: #fff;
 }
-
 a.btn-custom01:hover {
   transform: translate(0, 0.1rem);
   background: var(--primary-color);
 }
-
 a.btn-custom01:active {
   transform: translate(0rem, 0.25rem);
 }
-
+.btn-mute {
+  @apply my-4;
+  transition: 0.3s ease-out;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+}
+.btn-oteage {
+  @apply rounded-lg bg-customRed p-2 text-white;
+  background-color: var(--secondary-color);
+  border: 10px outset var(--secondary-color);
+  transition: 0.3s ease-out;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+}
+.btn-mute:hover,
+.btn-oteage:hover {
+  transform: translate(0, 0.1rem);
+}
 .m-w-50 {
   min-width: 3.25rem;
 }
-
 .ma-w-256 {
   max-width: 256px;
 }
-
 #__next {
   display: flex;
   flex-direction: column;
@@ -144,7 +145,6 @@ html {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   color: var(--quaternary-color);
 }
-
 li {
   list-style: none;
 }
