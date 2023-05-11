@@ -9,7 +9,7 @@ const questions = [
   {
     id: 'q_01',
     answer: 'バス',
-    english: 'bas',
+    english: 'bus',
     spanish: 'autobús',
     check: 'バス',
   },
@@ -50,7 +50,7 @@ const questions = [
   },
   {
     id: 'q_07',
-    answer: 'ゴミ収集車',
+    answer: 'ゴミしゅうしゅうしゃ',
     english: 'garbage truck',
     spanish: '',
     check: 'ゴミ収集車',
@@ -64,7 +64,7 @@ const questions = [
   },
   {
     id: 'q_09',
-    answer: 'クレーン車',
+    answer: 'クレーンしゃ',
     english: 'mobile crane',
     spanish: '',
     check: 'クレーン車',
@@ -141,7 +141,7 @@ const questions = [
   },
   {
     id: 'q_20',
-    answer: 'ミキサー車',
+    answer: 'ミキサーしゃ',
     english: 'mixer truck',
     spanish: '',
     check: 'ミキサー車',
@@ -169,21 +169,21 @@ const questions = [
   // },
   {
     id: 'q_24',
-    answer: '道路パトロールカー',
+    answer: 'どうろパトロールカー',
     english: 'road patrol car',
     spanish: '',
     check: '道路パトロールカー',
   },
   {
     id: 'q_25',
-    answer: 'しろばい',
+    answer: 'しろバイ',
     english: 'motorcycle police',
     spanish: '',
     check: '白バイ',
   },
   {
     id: 'q_26',
-    answer: '冷凍車',
+    answer: 'れいとうしゃ',
     english: 'refrigerator car',
     spanish: 's',
     check: '冷凍車',
@@ -197,7 +197,7 @@ const questions = [
   },
   {
     id: 'q_28',
-    answer: '気球',
+    answer: 'ききゅう',
     english: 'balloon',
     spanish: '',
     check: '気球',

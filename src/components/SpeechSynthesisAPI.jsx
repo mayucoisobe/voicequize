@@ -5,8 +5,8 @@ const SpeechSynthesisAPI = ({ japanese, english, voice }) => {
   const audioRef = useRef(null);
 
   // 利用可能な音声の種類
-  // const voice = speechSynthesis.getVoices();
-  // console.log(voice);
+  // const voices = speechSynthesis.getVoices();
+  // console.log(voices);
   // 現在の環境がブラウザかどうかをチェックし、音声読み上げをサポートしているかのチェック
   const isServer = typeof window === 'undefined';
   if (!SpeechSynthesisUtterance && !isServer) {
@@ -27,7 +27,7 @@ const SpeechSynthesisAPI = ({ japanese, english, voice }) => {
   };
 
   const speakEn = () => {
-    speak(english, 'en-US', 0.8, 0.7);
+    speak(english, 'en-GB', 0.8, 0.7);
   };
 
   const speakMyVoice = () => {
