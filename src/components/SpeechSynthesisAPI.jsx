@@ -23,11 +23,11 @@ const SpeechSynthesisAPI = ({ japanese, english, voice }) => {
   };
 
   const speakJa = () => {
-    speak(japanese, 'ja-JP', 0.6, 0.8);
+    speak(japanese, 'ja-JP', 1, 0.8);
   };
 
   const speakEn = () => {
-    speak(english, 'en-GB', 0.8, 0.7);
+    speak(english, 'en-GB', 1, 0.7);
   };
 
   const speakMyVoice = () => {
