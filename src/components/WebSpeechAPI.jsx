@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition';
 import useStore from '../store';
 
 import { HiraganaAPI } from './HiraganaAPI';
@@ -8,7 +10,12 @@ import { VoiceRecorder } from './VoiceRecorder';
 import useBetterMediaQuery from '@/components/useBetterMediaQuery';
 
 const WebSpeechAPI = ({ checkAnswer }) => {
-  const { transcript, finalTranscript, listening, browserSupportsSpeechRecognition } = useSpeechRecognition();
+  const {
+    transcript,
+    finalTranscript,
+    listening,
+    browserSupportsSpeechRecognition,
+  } = useSpeechRecognition();
   const setGetTranscript = useStore((state) => state.setGetTranscript);
   const { play_button, on } = styles;
   const [isListening, setIsListing] = useState(false);
@@ -16,7 +23,14 @@ const WebSpeechAPI = ({ checkAnswer }) => {
   // 現在の環境がブラウザかどうかをチェックし、音声認識をサポートしているかのチェック
   const isServer = typeof window === 'undefined';
   if (!browserSupportsSpeechRecognition && !isServer) {
-    return <div>お使いのブラウザは音声認識をサポートしていません。</div>;
+    return (
+      <>
+        <p>お使いのブラウザは音声認識をサポートしていません。</p>
+        <p>音声認識・音声サポートの仕様上、ぜひchormeにてお楽しみください！</p>
+        <p>激推し環境</p>
+        <p>Google Chrome（PC,スマートフォン:Android/iOS 共に）</p>
+      </>
+    );
   }
 
   // メディアクエリ条件
@@ -47,7 +61,10 @@ const WebSpeechAPI = ({ checkAnswer }) => {
 
   return (
     <div>
-      <button onClick={handleSwitch} className={`${play_button} ${listening ? on : ''}`}>
+      <button
+        onClick={handleSwitch}
+        className={`${play_button} ${listening ? on : ''}`}
+      >
         {!listening && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +93,11 @@ const WebSpeechAPI = ({ checkAnswer }) => {
         )}
       </button>
       {isMobile && <VoiceRecorder isListening={isListening} />}
-      <HiraganaAPI isListening={isListening} transcript={transcript} finalTranscript={finalTranscript} />
+      <HiraganaAPI
+        isListening={isListening}
+        transcript={transcript}
+        finalTranscript={finalTranscript}
+      />
       {/* <p>Microphone: {listening ? 'on' : 'off'}</p> */}
       {/* <button onClick={() => SpeechRecognition.startListening({ language: 'ja' })} className="micb">
         Start
