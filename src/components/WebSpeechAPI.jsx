@@ -26,9 +26,9 @@ const WebSpeechAPI = ({ checkAnswer }) => {
     return (
       <>
         <p>お使いのブラウザは音声認識をサポートしていません。</p>
-        <p>音声認識・音声サポートの仕様上、ぜひchormeにてお楽しみください！</p>
-        <p>激推し環境</p>
-        <p>Google Chrome（PC,スマートフォン:Android/iOS 共に）</p>
+        <p>ぜひchormeにてお楽しみください！</p>
+        <p>-- 激推し環境 --</p>
+        <p>Google Chrome（PC,スマートフォン:Android/iOS 全て）</p>
       </>
     );
   }
