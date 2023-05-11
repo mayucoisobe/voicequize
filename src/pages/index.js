@@ -161,7 +161,7 @@ export default function Home() {
             <VolumeControl />
             {isStart && (
               <button onClick={() => setShow(3)} className="btn-oteage">
-                お手上げ 👀
+                おてあげ 👀
               </button>
             )}
           </div>
