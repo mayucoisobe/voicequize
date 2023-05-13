@@ -261,7 +261,7 @@ const questions = [
   {
     id: 'q_37',
     answer: 'なす',
-    english: 'eggplnat',
+    english: 'eggplant',
     spanish: '',
     check: 'なす',
   },
