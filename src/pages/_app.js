@@ -1,5 +1,4 @@
 import 'regenerator-runtime';
-// import 'regenerator-runtime/runtime';
 import { LocalStorageGet } from '@/components/LocalStorageGet';
 import Layout from '@/components/layout';
 

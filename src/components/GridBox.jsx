@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import useStore from '@/store';
 import styles from '../styles/GridBox.module.css';
-import { AudioSounds } from './AudioSounds';
+// import { AudioSounds } from './AudioSounds';
 
 export const GridBox = () => {
   const decreasePoint = useStore((state) => state.decreasePoint);
