@@ -8,24 +8,6 @@ import axios from 'axios';
 export function VoiceRecorder({ isListening }) {
   const { voice } = useStore();
   const setVoice = useStore((state) => state.setVoice);
-  // const [name, setName] = useState('');
-  // const [status, setStatus] = useState('');
-  // const [voice, setVoice] = useState('');
-
-  // async function addVoice() {
-  //   try {
-  //     // Add the new voice!
-  //     const id = await db.voices.add({
-  //       name,
-  //       voice,
-  //     });
-
-  //     setStatus(`Voice ${name} successfully added. Got id ${id}`);
-  //     setName('');
-  //   } catch (error) {
-  //     setStatus(`Failed to add ${name}: ${error}`);
-  //   }
-  // }
 
   // 音声取得
   const { startRecording, stopRecording, mediaBlobUrl } = useReactMediaRecorder({

@@ -44,48 +44,13 @@ export const HiraganaAPI = ({ isListening, transcript, finalTranscript }) => {
     // console.log(finalTranscript);
   }, [finalTranscript]);
 
-  // useEffect(() => {
-  //   if (regexp.test(getTranscript)) {
-  //     const convertWord = () => {
-  //       const outputType = 'hiragana';
-  //       const apiUrl = 'https://labs.goo.ne.jp/api/hiragana';
-  //       const appId = 'a1a70483ce199b1cbc69b0157ccec5934f2e0b62a26350757f6f4eab61e46df3';
-
-  //       axios
-  //         .post(apiUrl, {
-  //           app_id: appId,
-  //           sentence: getTranscript,
-  //           output_type: outputType,
-  //         })
-  //         .then((response) => {
-  //           console.log(response.data.converted);
-  //           setHiraganaData(response.data.converted);
-  //         })
-  //         .catch((error) => {
-  //           console.error(error);
-  //         });
-  //       console.log('API発火');
-  //     };
-  //     convertWord();
-  //   } else {
-  //     setHiraganaData('');
-  //   }
-  // }, [finalTranscript]);
-
-  // console.log(hiraganaData);
-  // console.log(getTranscript);
-  // console.log('マイク状況：', isListening);
-
   return (
     <>
       <div className={balloon}>
         <p style={{ whiteSpace: 'pre-line' }}>
           {!isListening && !hiraganaData && !getTranscript ? 'マイクでこたえよう！' : ''}
         </p>
-        {/* <p>{hiraganaData ? hiraganaData : ''}</p> */}
-        {/* <p>{hiraganaData ? hiraganaData : transcript}</p> */}
         <p>{hiraganaData ? hiraganaData : getTranscript}</p>
-        {/* <p>{finalTranscript}</p> */}
         {/* API叩きすぎるとアクセス制限あり、変換されない時は {getTranscript}をそのまま出力 finalTranscriptでは出ない！ */}
       </div>
     </>

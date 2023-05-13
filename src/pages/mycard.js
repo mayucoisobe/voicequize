@@ -60,7 +60,7 @@ export default function mycard() {
     });
   };
 
-  console.log(IndexedData);
+  // console.log(IndexedData);
 
   return (
     <div className="wrapper">
