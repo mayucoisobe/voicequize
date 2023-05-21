@@ -71,7 +71,7 @@ export default function mycard() {
             <JokerIcon className="container h-full max-w-xs animate-flip-in-ver-right " />
           </>
         )}
-        <ul className="flex flex-col flex-wrap items-start justify-between gap-x-6 gap-y-7 sm:flex-row sm:gap-x-10">
+        <ul className="my-8 flex flex-col flex-wrap items-start justify-between gap-x-6 gap-y-10 sm:flex-row sm:gap-x-10">
           {IndexedData?.map((data, index) => (
             <li
               key={data.id}
