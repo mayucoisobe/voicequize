@@ -17,8 +17,17 @@ import { VolumeControl } from '@/components/VolumeControl';
 
 import { ReactComponent as IconStar } from '../../public/images/common/icon_starCount.svg';
 import { ReactComponent as IconHand } from '../../public/images/common/icon_pointhand.svg';
+import Splash from '@/components/Splash';
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3 * 1000);
+  }, []);
+
   // const { localData } = useStore();
   // 以下はconst {localData} = usestore(); じゃない？上記で修正してみる
   // Zstandでは関数で返ってくるので、配列として使用するためには　localDataを呼び出す必要があるので、上記のは不可っぽい???
@@ -143,99 +152,103 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="wrapper pb-12">
-        <div className="mx-auto max-w-sm px-8">
-          <div className="flex items-center justify-between">
-            <VolumeControl />
-            {isStart && (
-              <button onClick={() => setShow(3)} className="btn-oteage">
-                おてあげ 👀
-              </button>
-            )}
-          </div>
+      {isLoading ? (
+        <Splash />
+      ) : (
+        <div className="wrapper pb-12">
+          <div className="mx-auto max-w-sm px-8">
+            <div className="flex items-center justify-between">
+              <VolumeControl />
+              {isStart && (
+                <button onClick={() => setShow(3)} className="btn-oteage">
+                  おてあげ 👀
+                </button>
+              )}
+            </div>
 
-          <section>
-            <div className="mb-3 flex gap-1.5">
-              {[...Array(point)].map((_, index) => (
-                <IconStar key={index} />
-              ))}
-            </div>
-          </section>
-          <section className={`${!isStart ? 'pointer-events-none' : 'pointer-events-auto'}`}>
-            <div className="relative bg-white ">
-              <Image
-                src={`/images/questions/${image}.jpg`}
-                width={640}
-                height={480}
-                alt="car"
-                className="container rounded-xl border-4 border-solid border-customBlue object-contain object-center"
-              />
-              <GridBox />
-            </div>
-          </section>
-          <section className="mt-5">
-            {/* スタートボタンを押したらボタン非表示〜クイズシャッフル＆クリック可能〜マイク表示 */}
-            {!isStart ? (
-              <div className="relative">
-                <ButtonStart
-                  onClick={() => {
-                    shuffleStart();
-                    audioLoad();
-                  }}
-                >
-                  PLAY
-                </ButtonStart>
-                <IconHand className="absolute top-24 right-5 animate-up-down" />
-                {/* <Image
+            <section>
+              <div className="mb-3 flex gap-1.5">
+                {[...Array(point)].map((_, index) => (
+                  <IconStar key={index} />
+                ))}
+              </div>
+            </section>
+            <section className={`${!isStart ? 'pointer-events-none' : 'pointer-events-auto'}`}>
+              <div className="relative bg-white ">
+                <Image
+                  src={`/images/questions/${image}.jpg`}
+                  width={640}
+                  height={480}
+                  alt="car"
+                  className="container rounded-xl border-4 border-solid border-customBlue object-contain object-center"
+                />
+                <GridBox />
+              </div>
+            </section>
+            <section className="mt-5">
+              {/* スタートボタンを押したらボタン非表示〜クイズシャッフル＆クリック可能〜マイク表示 */}
+              {!isStart ? (
+                <div className="relative">
+                  <ButtonStart
+                    onClick={() => {
+                      shuffleStart();
+                      audioLoad();
+                    }}
+                  >
+                    PLAY
+                  </ButtonStart>
+                  <IconHand className="absolute top-24 right-5 animate-up-down" />
+                  {/* <Image
                   src="/images/common/icon_pointhand.png"
                   width={100}
                   height={100}
                   alt="point-hand"
                   className="absolute top-24 right-5 animate-up-down"
                 /> */}
-                <AudioSounds src="/resources/bgm_Monkeys-Spinning-Monkeys.mp3" autoPlay />
-              </div>
-            ) : (
-              <div>
-                <WebSpeechAPI checkAnswer={checkAnswer} />
-                {/* <div>{transcript}</div> */}
-                <AudioSounds src="/resources/dialogue_touch.mp3" autoPlay />
-                {/* 正解の判断はこちらで行う（漢字自動出力） */}
-                {/* <button onClick={() => setShow(3)}>わからない</button> */}
-                {/* <button onClick={checkAnswer}>回答する</button>
+                  <AudioSounds src="/resources/bgm_Monkeys-Spinning-Monkeys.mp3" autoPlay />
+                </div>
+              ) : (
+                <div>
+                  <WebSpeechAPI checkAnswer={checkAnswer} />
+                  {/* <div>{transcript}</div> */}
+                  <AudioSounds src="/resources/dialogue_touch.mp3" autoPlay />
+                  {/* 正解の判断はこちらで行う（漢字自動出力） */}
+                  {/* <button onClick={() => setShow(3)}>わからない</button> */}
+                  {/* <button onClick={checkAnswer}>回答する</button>
                 <h2 className="mt-5">{text}</h2>
                 <input onChange={inputChange} placeholder="テキスト入力"></input> */}
-              </div>
-            )}
-          </section>
-          <ModalCorrect
-            show={show}
-            setShow={setShow}
-            handleNextQuiz={handleNextQuiz}
-            setIndex={setIndex}
-            contents={quizlist[index]?.answer}
-            english={quizlist[index]?.english}
-            spanish={quizlist[index]?.spanish}
-            image={image}
-            audio={audio01}
-          >
-            <img src={`/images/questions/${image}.jpg`} alt="車の画像" />
-          </ModalCorrect>
-          <ModalInCorrect show={show} setShow={setShow} audio={audio02}></ModalInCorrect>
-          <ModalGameOver
-            show={show}
-            setShow={setShow}
-            handleNextQuiz={handleNextQuiz}
-            setIndex={setIndex}
-            contents={quizlist[index]?.answer}
-            audio={audio03}
-          >
-            <img src={`/images/questions/${image}.jpg`} alt="車の画像" />
-          </ModalGameOver>
+                </div>
+              )}
+            </section>
+            <ModalCorrect
+              show={show}
+              setShow={setShow}
+              handleNextQuiz={handleNextQuiz}
+              setIndex={setIndex}
+              contents={quizlist[index]?.answer}
+              english={quizlist[index]?.english}
+              spanish={quizlist[index]?.spanish}
+              image={image}
+              audio={audio01}
+            >
+              <img src={`/images/questions/${image}.jpg`} alt="車の画像" />
+            </ModalCorrect>
+            <ModalInCorrect show={show} setShow={setShow} audio={audio02}></ModalInCorrect>
+            <ModalGameOver
+              show={show}
+              setShow={setShow}
+              handleNextQuiz={handleNextQuiz}
+              setIndex={setIndex}
+              contents={quizlist[index]?.answer}
+              audio={audio03}
+            >
+              <img src={`/images/questions/${image}.jpg`} alt="車の画像" />
+            </ModalGameOver>
+          </div>
+          {/* 初回ページアクセス時のポイント表示 各ページに記載 */}
+          <LocalStorageGet />
         </div>
-        {/* 初回ページアクセス時のポイント表示 各ページに記載 */}
-        <LocalStorageGet />
-      </div>
+      )}
     </>
   );
 }
