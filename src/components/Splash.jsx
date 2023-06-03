@@ -99,7 +99,7 @@ export default function Splash() {
               alt="voicequizeLogo"
               src="/images/appIcon.svg"
               mr={2}
-              style={{ maxWidth: 'none', height: 'max-content' }}
+              style={{ maxWidth: 'none', height: '76px' }}
             ></Image>
           </div>
           <div className={`ractan ${styles.elem} ${styles.ractan}`}></div>
