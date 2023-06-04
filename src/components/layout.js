@@ -1,8 +1,8 @@
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import SplashScreen from './SplashScreen';
-import { usePathname } from 'next/navigation';
 
 export default function Layout({ children }) {
   const pathname = usePathname();
