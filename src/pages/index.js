@@ -17,17 +17,8 @@ import { VolumeControl } from '@/components/VolumeControl';
 
 import { ReactComponent as IconStar } from '../../public/images/common/icon_starCount.svg';
 import { ReactComponent as IconHand } from '../../public/images/common/icon_pointhand.svg';
-// import Splash from '@/components/Splash';
 
 export default function Home() {
-  // const [isLoading, setIsLoading] = useState(true);
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 3 * 1000);
-  // }, []);
-
   // const { localData } = useStore();
   // 以下はconst {localData} = usestore(); じゃない？上記で修正してみる
   // Zstandでは関数で返ってくるので、配列として使用するためには　localDataを呼び出す必要があるので、上記のは不可っぽい???
@@ -71,7 +62,6 @@ export default function Home() {
     setAudio03(createAudio03);
     console.log('load実行');
   };
-  // console.log(audio01, audio02, audio03);
   /*
   ios audio再生対策ここまで
   -------------------- */
@@ -152,9 +142,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* {isLoading ? (
-        <Splash />
-      ) : ( */}
       <div className="wrapper pb-12">
         <div className="mx-auto max-w-sm px-8">
           <div className="flex items-center justify-between">
@@ -248,7 +235,6 @@ export default function Home() {
         {/* 初回ページアクセス時のポイント表示 各ページに記載 */}
         <LocalStorageGet />
       </div>
-      {/* )} */}
     </>
   );
 }
