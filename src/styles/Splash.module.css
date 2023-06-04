@@ -1,5 +1,5 @@
 .splash {
-  min-height: calc(100vh - 175px);
+  min-height: 100vh;
   background-color: #fff;
   background-image: radial-gradient(#ffd166 10%, transparent 12%), radial-gradient(#ffd166 10%, transparent 12%);
   background-position: 0 0, 20px 20px;
