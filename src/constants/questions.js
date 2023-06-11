@@ -185,7 +185,7 @@ const questions = [
     id: 'q_26',
     answer: 'れいとうしゃ',
     english: 'refrigerator car',
-    spanish: 's',
+    spanish: '',
     check: '冷凍車',
   },
   {
@@ -345,7 +345,7 @@ const questions = [
   {
     id: 'q_49',
     answer: 'しいたけ',
-    english: 'Shiitake mushrooms',
+    english: 'shiitake mushrooms',
     spanish: '',
     check: 'しいたけ',
   },
@@ -387,14 +387,14 @@ const questions = [
   {
     id: 'q_55',
     answer: 'ダンプトラック',
-    english: 'airship',
+    english: 'heavy dump truck',
     spanish: '',
     check: 'ダンプトラック',
   },
   {
     id: 'q_56',
     answer: 'じてんしゃ',
-    english: 'airship',
+    english: 'bicycle',
     spanish: '',
     check: '自転車',
   },
