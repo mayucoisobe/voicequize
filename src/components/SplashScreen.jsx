@@ -43,7 +43,7 @@ export default function SplashScreen({ finishLoading }) {
     const timeout = setTimeout(() => setIsMounted(true), 10);
     animation();
     return () => clearTimeout(timeout);
-  });
+  }, []);
 
   return (
     <div className={styles.splash}>
