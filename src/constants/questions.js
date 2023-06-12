@@ -86,7 +86,7 @@ const questions = [
   {
     id: 'q_12',
     answer: 'ちゅうけいしゃ',
-    english: 'stellite truck',
+    english: 'satellite truck',
     spanish: '',
     check: '中継車',
   },
