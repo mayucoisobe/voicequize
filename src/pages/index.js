@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import useStore from '../store';
@@ -138,7 +137,6 @@ export default function Home() {
               </button>
             )}
           </div>
-
           <section>
             <div className="mb-3 flex gap-1.5">
               {[...Array(point)].map((_, index) => (

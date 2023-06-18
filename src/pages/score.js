@@ -5,6 +5,7 @@ import { useRef, useLayoutEffect } from 'react';
 import useStore from '../store';
 import styles from '../styles/score.module.css';
 
+import { HeadMeta } from '@/components/organisms/HeadMeta';
 import { Button } from '@/components/Button';
 import { LocalStorageGet } from '@/components/LocalStorageGet';
 import { AudioSounds } from '@/components/AudioSounds';
@@ -113,49 +114,56 @@ export default function score() {
   }, []);
 
   return (
-    <div className="wrapper relative overflow-x-hidden">
-      <div className="mx-auto max-w-xl px-8">
-        <VolumeControl />
-        <div ref={elemRef} className="board">
-          <div className={`${board_inner} relative mt-8 bg-white`}>
-            <StarHead className={`${star} absolute -top-11 left-1/2 z-50`} />
-            <h2 className={`${title} en relative mt-4 text-center text-4xl text-customBlue`}>SCORE</h2>
-            <div className="relative mt-4">
-              <div className="relative z-50 h-16 w-16 rounded-full border-4 border-solid border-customYellow bg-white">
-                <Star className={po_center} />
+    <>
+      <HeadMeta title={'スコア | voice de quize'} description={'voice de quizeのスコアのページです。'} />
+      <div className="wrapper relative overflow-x-hidden">
+        <div className="mx-auto max-w-xl px-8">
+          <VolumeControl />
+          <div ref={elemRef} className="board">
+            <div className={`${board_inner} relative mt-8 bg-white`}>
+              <StarHead className={`${star} absolute -top-11 left-1/2 z-50`} />
+              <h2 className={`${title} en relative mt-4 text-center text-4xl text-customBlue`}>SCORE</h2>
+              <div className="relative mt-4">
+                <div className="relative z-50 h-16 w-16 rounded-full border-4 border-solid border-customYellow bg-white">
+                  <Star className={po_center} />
+                </div>
+                <div
+                  className={`${po_right} h-12 w-36 rounded-full border-4 border-solid border-customYellow bg-white`}
+                >
+                  <p className="en pr-3 text-right text-4xl">{starCount}</p>
+                </div>
               </div>
-              <div className={`${po_right} h-12 w-36 rounded-full border-4 border-solid border-customYellow bg-white`}>
-                <p className="en pr-3 text-right text-4xl">{starCount}</p>
+              <div className="relative mt-2">
+                <div className="relative z-50 h-16 w-16 rounded-full border-4 border-solid border-customYellow bg-white">
+                  <Card className={po_center} />
+                </div>
+                <div
+                  className={`${po_right} h-12 w-36 rounded-full border-4 border-solid border-customYellow bg-white`}
+                >
+                  <p className="en pr-3 text-right text-4xl">{cardCount}</p>
+                </div>
               </div>
+              <Link href="/mycard">
+                <Button styleType="primary" text="カード" />
+              </Link>
             </div>
-            <div className="relative mt-2">
-              <div className="relative z-50 h-16 w-16 rounded-full border-4 border-solid border-customYellow bg-white">
-                <Card className={po_center} />
-              </div>
-              <div className={`${po_right} h-12 w-36 rounded-full border-4 border-solid border-customYellow bg-white`}>
-                <p className="en pr-3 text-right text-4xl">{cardCount}</p>
-              </div>
-            </div>
-            <Link href="/mycard">
-              <Button styleType="primary" text="カード" />
-            </Link>
           </div>
+          {objList.map((obj, index) => (
+            <Image
+              key={index}
+              id={obj.id}
+              src={obj.src}
+              width={obj.width}
+              height="80"
+              alt="くるまの画像"
+              style={obj.style}
+            />
+          ))}
+          <AudioSounds src="/resources/bgm_Run-Amok.mp3" autoPlay />
         </div>
-        {objList.map((obj, index) => (
-          <Image
-            key={index}
-            id={obj.id}
-            src={obj.src}
-            width={obj.width}
-            height="80"
-            alt="くるまの画像"
-            style={obj.style}
-          />
-        ))}
-        <AudioSounds src="/resources/bgm_Run-Amok.mp3" autoPlay />
+        {/* 初回ページアクセス時のポイント表示 各ページに記載 */}
+        <LocalStorageGet />
       </div>
-      {/* 初回ページアクセス時のポイント表示 各ページに記載 */}
-      <LocalStorageGet />
-    </div>
+    </>
   );
 }
