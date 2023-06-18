@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SpeechRecognition, {
-  useSpeechRecognition,
-} from 'react-speech-recognition';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import useStore from '../store';
 
 import { HiraganaAPI } from './HiraganaAPI';
@@ -10,12 +8,7 @@ import { VoiceRecorder } from './VoiceRecorder';
 import useBetterMediaQuery from '@/components/useBetterMediaQuery';
 
 const WebSpeechAPI = ({ checkAnswer }) => {
-  const {
-    transcript,
-    finalTranscript,
-    listening,
-    browserSupportsSpeechRecognition,
-  } = useSpeechRecognition();
+  const { transcript, finalTranscript, listening, browserSupportsSpeechRecognition } = useSpeechRecognition();
   const setGetTranscript = useStore((state) => state.setGetTranscript);
   const { play_button, on } = styles;
   const [isListening, setIsListing] = useState(false);
@@ -61,10 +54,7 @@ const WebSpeechAPI = ({ checkAnswer }) => {
 
   return (
     <div>
-      <button
-        onClick={handleSwitch}
-        className={`${play_button} ${listening ? on : ''}`}
-      >
+      <button onClick={handleSwitch} className={`${play_button} ${listening ? on : ''}`}>
         {!listening && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -93,25 +83,7 @@ const WebSpeechAPI = ({ checkAnswer }) => {
         )}
       </button>
       {isMobile && <VoiceRecorder isListening={isListening} />}
-      <HiraganaAPI
-        isListening={isListening}
-        transcript={transcript}
-        finalTranscript={finalTranscript}
-      />
-      {/* <p>Microphone: {listening ? 'on' : 'off'}</p> */}
-      {/* <button onClick={() => SpeechRecognition.startListening({ language: 'ja' })} className="micb">
-        Start
-      </button>
-      <button onClick={SpeechRecognition.stopListening} className="micb">
-        Stop
-      </button> */}
-      {/* <button onClick={resetTranscript} className="micb">
-        Reset
-      </button> */}
-      {/* <button onClick={checkAnswer}>判定</button> */}
-      {/* <form>
-        <p>{transcript}</p>
-      </form> */}
+      <HiraganaAPI isListening={isListening} transcript={transcript} finalTranscript={finalTranscript} />
     </div>
   );
 };
