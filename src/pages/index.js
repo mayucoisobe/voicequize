@@ -126,7 +126,7 @@ export default function Home() {
 
   return (
     <>
-      <HeadMeta title={'voice de quize'} description={'voice de quizeのクイズページです。'} />
+      <HeadMeta title={'voice de quize'} description={'voice de quizeのクイズページです。'}></HeadMeta>
       <div className="wrapper pb-12">
         <div className="mx-auto max-w-sm px-8">
           <div className="flex items-center justify-between">
