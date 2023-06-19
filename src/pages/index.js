@@ -126,13 +126,7 @@ export default function Home() {
 
   return (
     <>
-      {/* <HeadMeta title={'voice de quize'} description={'voice de quizeのクイズページです。'}></HeadMeta> */}
-      <Head>
-        <title>voice de quize</title>
-        <meta name="description" content="voice de quizeのクイズページです。" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <HeadMeta title={'voice de quize'} description={'voice de quizeのクイズページです。'}></HeadMeta>
       <div className="wrapper pb-12">
         <div className="mx-auto max-w-sm px-8">
           <div className="flex items-center justify-between">
