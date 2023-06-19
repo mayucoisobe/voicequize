@@ -15,8 +15,8 @@ import { ClearIndexedDB } from '@/components/ClearIndexedDB';
 export default function menu() {
   const resetPoint = useStore((state) => state.resetPoint);
   const { title, board_inner, halfcircle } = styles;
-  const [showHow, setShowHow] = useState(false); // あそび方モーダル
-  const [showReset, setShowReset] = useState(false); // リセットモーダル
+  const [showHow, setShowHow] = useState(false); // あそび方Modal
+  const [showReset, setShowReset] = useState(false); // リセットModal
 
   const LocalStorageClear = () => {
     console.log('ローカルストレージクリア！');
