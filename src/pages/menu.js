@@ -28,7 +28,13 @@ export default function menu() {
 
   return (
     <>
-      <HeadMeta title={'メニュー | voice de quize'} description={'voice de quizeのメニューページです。'} />
+      <HeadMeta
+        title={'メニュー | voice de quize'}
+        description={'voice de quizeのメニューページです。'}
+        url={'https://voicequize.vercel.app/menu'}
+        type={'menu'}
+        imageUrl={'https://voicequize.vercel.app/ogp-image.png'}
+      />
       <div className="wrapper">
         <div className="mx-auto max-w-xl px-8">
           <VolumeControl />

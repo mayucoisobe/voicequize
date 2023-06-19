@@ -65,7 +65,13 @@ export default function mycard() {
 
   return (
     <>
-      <HeadMeta title={'マイカード | voice de quize'} description={'voice de quizeのマイカードのページです。'} />
+      <HeadMeta
+        title={'マイカード | voice de quize'}
+        description={'voice de quizeのマイカードのページです。'}
+        url={'https://voicequize.vercel.app/mycard'}
+        type={'mycard'}
+        imageUrl={'https://voicequize.vercel.app/ogp-image.png'}
+      />
       <div className="wrapper">
         <div className="mx-auto max-w-xl px-8">
           {!cardCount && (

@@ -126,7 +126,15 @@ export default function Home() {
 
   return (
     <>
-      <HeadMeta title={'voice de quize'} description={'voice de quizeのクイズページです。'} />
+      <HeadMeta
+        title={'声で答えるクイズ| voice de quize'}
+        description={
+          'voice de quizeのクイズページです。大きな声で答えよう！ブロックの後ろに隠れているのは何かな？マイクをタッチして元気な声で答えてみよう！'
+        }
+        url={'https://voicequize.vercel.app/'}
+        type={'website'}
+        imageUrl={'https://voicequize.vercel.app/ogp-image.png'}
+      />
       <div className="wrapper pb-12">
         <div className="mx-auto max-w-sm px-8">
           <div className="flex items-center justify-between">

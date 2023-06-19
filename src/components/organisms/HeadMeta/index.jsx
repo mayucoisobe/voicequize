@@ -1,22 +1,19 @@
 import Head from 'next/head';
 
-export const HeadMeta = ({ title, description }) => {
+export const HeadMeta = ({ title, description, url, type, imageUrl }) => {
   return (
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.ico" />
-      {/* <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="./images/apple-touch-icon-180x180.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="167x167"
-        href="./images/apple-touch-icon-167x167.png"
-      /> */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={url} />
+      <meta property="og:site_name" content={title} />
+      <meta property="og:type" content={type} />
+      <meta property="og:image" content={imageUrl} />
     </Head>
   );
 };
