@@ -133,7 +133,7 @@ export default function Home() {
         }
         url={'https://voicequize.vercel.app/'}
         type={'website'}
-        imageUrl={'https://voicequize.vercel.app/ogp-image.png'}
+        imageUrl={'https://voicequize.vercel.app/ogp-img.png'}
       />
       <div className="wrapper pb-12">
         <div className="mx-auto max-w-sm px-8">

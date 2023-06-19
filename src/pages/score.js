@@ -120,7 +120,7 @@ export default function score() {
         description={'voice de quizeのスコアのページです。'}
         url={'https://voicequize.vercel.app/score'}
         type={'score'}
-        imageUrl={'https://voicequize.vercel.app/ogp-image.png'}
+        imageUrl={'https://voicequize.vercel.app/ogp-img.png'}
       />
       <div className="wrapper relative overflow-x-hidden">
         <div className="mx-auto max-w-xl px-8">

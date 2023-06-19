@@ -70,7 +70,7 @@ export default function mycard() {
         description={'voice de quizeのマイカードのページです。'}
         url={'https://voicequize.vercel.app/mycard'}
         type={'mycard'}
-        imageUrl={'https://voicequize.vercel.app/ogp-image.png'}
+        imageUrl={'https://voicequize.vercel.app/ogp-img.png'}
       />
       <div className="wrapper">
         <div className="mx-auto max-w-xl px-8">

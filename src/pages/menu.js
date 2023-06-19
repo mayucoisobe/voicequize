@@ -33,7 +33,7 @@ export default function menu() {
         description={'voice de quizeのメニューページです。'}
         url={'https://voicequize.vercel.app/menu'}
         type={'menu'}
-        imageUrl={'https://voicequize.vercel.app/ogp-image.png'}
+        imageUrl={'https://voicequize.vercel.app/ogp-img.png'}
       />
       <div className="wrapper">
         <div className="mx-auto max-w-xl px-8">
