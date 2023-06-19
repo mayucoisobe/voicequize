@@ -20,7 +20,7 @@ export default function Layout({ children }) {
       ) : (
         <>
           <Header />
-          <main className="sm:mt-auto">{children}</main>
+          <main className="mt-auto">{children}</main>
           <Footer />
         </>
       )}
