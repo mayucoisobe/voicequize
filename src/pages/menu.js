@@ -28,7 +28,7 @@ export default function menu() {
 
   return (
     <>
-      <HeadMeta title={'メニュー | voice de quize'} description={'voice de quizeのメニューページです。'} />
+      <HeadMeta title={'メニュー | voice de quize'} description={'voice de quizeのメニューページです。'}></HeadMeta>
       <div className="wrapper">
         <div className="mx-auto max-w-xl px-8">
           <VolumeControl />
