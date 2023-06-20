@@ -127,7 +127,7 @@ export default function Home() {
   return (
     <>
       <HeadMeta
-        title={'声で答えるクイズ| voice de quize'}
+        title={'声で答えるクイズ| Voice de quize'}
         description={
           'voice de quizeのクイズページです。大きな声で答えよう！ブロックの後ろに隠れているのは何かな？マイクをタッチして元気な声で答えてみよう！'
         }

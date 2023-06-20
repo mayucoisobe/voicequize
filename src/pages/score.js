@@ -116,7 +116,7 @@ export default function score() {
   return (
     <>
       <HeadMeta
-        title={'スコア | voice de quize'}
+        title={'スコア | Voice de quize'}
         description={'voice de quizeのスコアのページです。'}
         url={'https://voicequize.vercel.app/score'}
         type={'score'}
