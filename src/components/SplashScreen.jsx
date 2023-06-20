@@ -19,7 +19,7 @@ export default function SplashScreen({ finishLoading }) {
       .to('.triangle', { y: '-6.5rem', rotation: 20, duration: 0.35, ease: 'power4.out' })
       .to('.triangle', { x: '8rem', y: '13rem', rotation: 420, duration: 1.2, ease: 'bounce.out' })
       .to('.triangle', { backgroundColor: '#fff', border: '1px solid #3e87ff', duration: 0.5 }, '1.1')
-      .to('.ractan', { scaleY: '.6', transformOrigin: '0% bottom', duration: 0.3 }, '0.34')
+      .to('.ractan', { scaleY: '.6', transformOrigin: '0% bottom', duration: 0.3 }, '0.31')
       .to('.ractan', { scaleY: '1' }, '>')
       .fromTo(
         '.splashTtlInner',
