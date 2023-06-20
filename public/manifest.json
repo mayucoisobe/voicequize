@@ -1,11 +1,11 @@
 {
-  "theme_color": "#ffd166 ",
-  "background_color": "#3e87ff",
+  "theme_color": "#3e87ff",
+  "background_color": "#ffd166",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Voice de quiz",
-  "short_name": "Voice de quiz",
+  "name": "Voice de Quiz",
+  "short_name": "Voice de Quiz",
   "icons": [
     {
       "src": "/icon-192x192.png",

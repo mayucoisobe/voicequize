@@ -66,7 +66,7 @@ export default function mycard() {
   return (
     <>
       <HeadMeta
-        title={'マイカード | Voice de quize'}
+        title={'マイカード | Voice de Quize'}
         description={'voice de quizeのマイカードのページです。'}
         url={'https://voicequize.vercel.app/mycard'}
         type={'mycard'}

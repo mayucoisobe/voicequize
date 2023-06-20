@@ -50,7 +50,7 @@ export default function SplashScreen({ finishLoading }) {
       <div>
         <div className={styles.splashTtl}>
           <h2 className={`splashTtlInner en ${styles.splashTtlInner}`}>
-            Voice de<br></br>quize
+            Voice de<br></br>Quize
           </h2>
         </div>
         <div className={styles.oden}>

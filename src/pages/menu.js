@@ -29,7 +29,7 @@ export default function menu() {
   return (
     <>
       <HeadMeta
-        title={'メニュー | Voice de quize'}
+        title={'メニュー | Voice de Quize'}
         description={'voice de quizeのメニューページです。'}
         url={'https://voicequize.vercel.app/menu'}
         type={'menu'}
