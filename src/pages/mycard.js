@@ -67,10 +67,9 @@ export default function mycard() {
     <>
       <HeadMeta
         title={'マイカード | Voice de Quize'}
-        description={'voice de quizeのマイカードのページです。'}
+        description={'Voice de Quizeのマイカードのページです。'}
         url={'https://voicequize.vercel.app/mycard'}
-        type={'mycard'}
-        imageUrl={'https://voicequize.vercel.app/ogp-img.png'}
+        type={'article'}
       />
       <div className="wrapper">
         <div className="mx-auto max-w-xl px-8">

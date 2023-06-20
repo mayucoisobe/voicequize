@@ -30,10 +30,9 @@ export default function menu() {
     <>
       <HeadMeta
         title={'メニュー | Voice de Quize'}
-        description={'voice de quizeのメニューページです。'}
+        description={'Voice de Quizeのメニューページです。'}
         url={'https://voicequize.vercel.app/menu'}
-        type={'menu'}
-        imageUrl={'https://voicequize.vercel.app/ogp-img.png'}
+        type={'article'}
       />
       <div className="wrapper">
         <div className="mx-auto max-w-xl px-8">

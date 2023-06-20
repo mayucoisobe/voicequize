@@ -117,10 +117,9 @@ export default function score() {
     <>
       <HeadMeta
         title={'スコア | Voice de Quize'}
-        description={'voice de quizeのスコアのページです。'}
+        description={'Voice de Quizeのスコアのページです。'}
         url={'https://voicequize.vercel.app/score'}
-        type={'score'}
-        imageUrl={'https://voicequize.vercel.app/ogp-img.png'}
+        type={'article'}
       />
       <div className="wrapper relative overflow-x-hidden">
         <div className="mx-auto max-w-xl px-8">
