@@ -132,7 +132,7 @@ export default function Home() {
           'Voice de Quizeのクイズページです。大きな声で答えよう！ブロックの後ろに隠れているのは何かな？マイクをタッチして元気な声で答えてみよう！'
         }
         url={'https://voicequize.vercel.app/'}
-        type={'website'}
+        type={'article'}
       />
       <div className="wrapper pb-12">
         <div className="mx-auto max-w-sm px-8">
