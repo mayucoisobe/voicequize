@@ -19,7 +19,7 @@ export const HeadMeta = ({ title, description, url, type }) => {
       <meta name="twitter:site" content="@mayukoony" />
       <meta name="twitter:image" content="https://voicequize.vercel.app/ogp-img.png" />
       {/* Canonical */}
-      <link rel="canonical" href="https://voicequize.vercel.app/"></link>
+      <link rel="canonical" href={url}></link>
     </Head>
   );
 };
