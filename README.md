@@ -1,38 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Voice de Quize
+### 🧞 3~5歳児を対象にした、声で答えるクイズ形式の知育アプリです。
+  カラフルなブロックをクリックするたびに、パズルのように隠れている画像の一部が見えてきます。
+  画像が何かを想像し、声に出して答えるクイズアプリです。
 
-## Getting Started
+<img width="693" alt="スクリーンショット 2023-07-09 1 12 31" src="https://github.com/mayucoisobe/cine-chat/assets/121940353/408f207f-3b49-4d49-b6aa-aa978a306184">
 
-First, run the development server:
+## 背景・目的
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+3 歳になったばかりの甥っ子に久しぶりに会った際、身近なものや大好きな車の名前をどんどん話すようになった姿を見て、子供が遊び感覚で使える知育アプリが作れないかと考えたことがキッカケです。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+まだ舌足らずながらもとにかく話すのが楽しい！という様子だったので『声』をキーワードにしたアプリを検討、身近なものを見て声に出して答えるクイズを制作しました。
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+楽しく遊びながら想像力を育み、同時に話すことの楽しさや自分の声がリアルタイムにテキスト（ひらがな）となり表示されることで、文字にも親しみを持つ機会になればいいなと考えました。
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 概要
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+ はじめにユーザー側でマイクのアクセスを許可にすること
+- スタートボタンを押すと、ゲーム開始（クイズはランダムにシャッフル）
+- ブロックをクリックすると、画像が見えてくる、同時にスコアも減っていく
+- 何の画像かわかった時点でマイクボタンをクリックして答える
+- 声がテキスト化され表示された後、正解不正解の判定を実行
+- 正解したら拍手喝采の音声、カードとスコアをゲット！
+- 不正解の場合はゲームに戻って続きを行う
+- わからない場合(pass)はお手上げボタンで次のクイズへ
+- マイカードページでは正解したクイズののカードが溜まっていき、カードをクリックすると日本語と英語でモノの名前が読み上げれる
+- PC 環境では、ユーザーが回答した際の声が録音され、マイカードのページで再生される仕組み
+- リセットボタンでデータリセット可能
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🚀 画面構成　
 
-## Learn More
+https://www.figma.com/file/c4FfpzY2HVhSCwiZw5uuND/voice_quiz_color1?type=design&node-id=166-508&mode=design&t=HlbgQDNnhIso1hLA-4
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## 技術スタック
+React/TypeScript/Next.js で構築しました。ホスティングは Vercel を利用し、PWA 対応しました。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+CSS フレームワークにはChakraUIを使い、映画の検索には、TMDB の API を利用し、映画とドラマから各々検索できるようになっています。 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+データベース・認証機能は Firebase を使っています。
+
+---
+- React
+- TypeScript
+- Next.js 13.4.2
+- Vercel
+- Firebase (CloudFirestore / FirebaseAuthentication)
+- Chakra UI
+- GSAP
+- [TMDB API](https://developer.themoviedb.org/docs) 
+
+
+## 苦労したポイント
+> TypeScript
+
+- 基本の型を確認した程度の浅い知識で制作したため、エラーの解消時間がかかりました。
+  今後より理解を深めつつ、次の制作時に活かしていきます。
+
+> コンポーネント管理
+
+- ページ構成に沿ってコンポーネントを分割しようとしたのですが、ざっくりとしか設計していなかったため、制作が進むにつれコンポーネントが乱立し纏まりがなくなってしまいました。
+
+#### Links
+
+- [**Voice de Quize**](https://voicequize.vercel.app/)
+- [**Portfolio**](https://mimivel-dev.vercel.app/)
+
+
+
+
