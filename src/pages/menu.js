@@ -46,14 +46,14 @@ export default function menu() {
                 <Modal styleType="primary" show={showHow} setShow={setShowHow}>
                   <Block />
                   <p className="mt-5 text-base xs:mt-6 xs:text-xl">
-                    ブロックの後ろに何かがかくれているよ？
+                    ブロックをクリックすると少しずつ何かが見えてくる？👀
                     <br />
-                    クリックすると少しずつ見えてくる！👀
+                    わかったらマイクを押して大きな声でこたえよう♬
                     <br />
-                    わかったらマイク🎙をクリック！
                     <br />
-                    大きな声でこたえよう♬
+                    ※推奨環境:Google Chrome
                     <br />
+                    ※はじめにマイクのアクセスを許可してください。
                   </p>
                   <Link href="/" className="self-stretch text-center">
                     <Button styleType="primary" text="クイズへ" />
