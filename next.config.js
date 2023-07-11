@@ -9,22 +9,22 @@ module.exports = withPWA({
     dest: 'public',
     register: true,
     skipWaiting: true,
-    runtimeCaching: [
-      {
-        urlPattern: /^https:\/\/voicequize.vercel.app\/.*/,
-        handler: 'NetworkFirst',
-        options: {
-          cacheName: 'static-cache',
-          expiration: {
-            maxEntries: 10,
-            maxAgeSeconds: 24 * 60 * 60, // 24 hours
-          },
-          networkTimeoutSeconds: 10,
-        },
-      },
-    ],
+    // runtimeCaching: [
+    //   {
+    //     urlPattern: /^https:\/\/voicequize.vercel.app\/.*/,
+    //     handler: 'NetworkFirst',
+    //     options: {
+    //       cacheName: 'static-cache',
+    //       expiration: {
+    //         maxEntries: 10,
+    //         maxAgeSeconds: 24 * 60 * 60, // 24 hours
+    //       },
+    //       networkTimeoutSeconds: 10,
+    //     },
+    //   },
+    // ],
   },
-  reactStrinctMode: true,
+  reactStrictMode: true,
 });
 
 module.exports = nextConfig;
